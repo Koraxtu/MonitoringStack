@@ -38,3 +38,7 @@ services:
       - 9100:9100
 volumes:
   prom_data:
+
+networks:
+  monitoring_default:
+    external: true
