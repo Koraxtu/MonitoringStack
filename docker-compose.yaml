@@ -36,6 +36,20 @@ services:
       - "--collector.filesystem.mount-points-exclude=^/(sys|proc|dev|host|etc)($$|/)"
     ports:
       - 9100:9100
+  python-app:
+    build:
+      context: ./prom_python_app
+      dockerfile: dockerfile
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - ./prom_python_app:/app
+    environment:
+      - ENV=production
+    networks:
+      - monitoring_default
+
 volumes:
   prom_data:
 

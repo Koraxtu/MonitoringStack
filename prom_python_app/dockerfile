@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 8000 8001
 
+RUN echo "File structure of /app:" && /app || ls -R /app
+
 CMD ["python", "counter.py"]
